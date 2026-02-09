@@ -1,0 +1,30 @@
+name: LinuxBuild
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  Build:
+    name: BuildAndTest
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v12
+
+      - name: Configure & Build
+        run: nix build path:.
+
+      - name: Check MemTide binary
+        run: |
+          if [ ! -f result/bin/MemTide ]; then
+            echo "Binary not found"
+            exit 84
+          fi
+          echo "Binary found"
