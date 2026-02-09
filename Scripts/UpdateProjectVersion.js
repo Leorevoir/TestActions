@@ -15,7 +15,7 @@ import ChangelogManager from "./Shared/ChangelogManager.js";
  * @param Context - GitHub Actions context
  * @param Core - GitHub Actions core utilities
  */
-export default async ({ github, context, core }) => {
+module.exports = async ({ github, context, core }) => {
   try {
     const PullRequest = context.payload.pull_request;
     if (!PullRequest) throw new Error("Pull request not found");
@@ -69,8 +69,8 @@ export default async ({ github, context, core }) => {
     );
 
     core.notice(`Version updated to v${NewVersion}`);
-  } catch (CatchedError) {
-    core.setFailed(`Release script failed: ${CatchedError.message}`);
-    throw CatchedError;
+  } catch (Error) {
+    core.setFailed(`Release script failed: ${Error.message}`);
+    throw Error;
   }
 };
