@@ -38,8 +38,8 @@ const Config = {
   },
 
   getIncrement(Type) {
-    return this.VersionMapping[Type] || 0;
+    return this.VersionMapping[Type] || null;
   },
 };
 
-export default Config;
+module.exports = Config;

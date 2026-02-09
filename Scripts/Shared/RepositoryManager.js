@@ -7,7 +7,7 @@
  * @class RepositoryManager
  * @brief Utility class for reading and writing files in a GitHub repository
  */
-export default class RepositoryManager {
+class RepositoryManager {
   /**
    * @brief Reads the content of a file from a GitHub repository
    * @param Github - The GitHub API client
@@ -55,3 +55,5 @@ export default class RepositoryManager {
     });
   }
 }
+
+module.exports = RepositoryManager;

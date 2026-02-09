@@ -7,7 +7,7 @@
  * @class ChangelogManager
  * @brief Utility class for building and updating changelog entries
  */
-export default class ChangelogManager {
+class ChangelogManager {
   /**
    * @brief Builds a changelog entry based on the provided version and pull request information
    * @param Version - The version number for the changelog entry
@@ -41,3 +41,5 @@ export default class ChangelogManager {
     return Current.replace(/^# Changelog\s*/i, `# Changelog\n\n${Entry}\n`);
   }
 }
+
+module.exports = ChangelogManager;

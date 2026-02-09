@@ -3,13 +3,13 @@
  * @brief Versions request utilities
  */
 
-import Config from "./Config.js";
+const Config = require("./Config.js");
 
 /**
  * @class VersionManager
  * @brief Utility class for parsing and updating project version
  */
-export default class VersionManager {
+class VersionManager {
   /**
    * @brief Parses a version string in the format "Major.Minor.Patch" into an object
    * @param Value - The version string to parse
@@ -59,3 +59,5 @@ export default class VersionManager {
     return `${Next.Major}.${Next.Minor}.${Next.Patch}`;
   }
 }
+
+module.exports = VersionManager;

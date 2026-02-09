@@ -3,11 +3,11 @@
  * @brief Updates VERSION.md and CHANGELOG.md based on merged pull request
  */
 
-import Config from "./Shared/Config.js";
-import PullRequestManager from "./Shared/PullRequestManager.js";
-import VersionManager from "./Shared/VersionManager.js";
-import RepositoryManager from "./Shared/RepositoryManager.js";
-import ChangelogManager from "./Shared/ChangelogManager.js";
+const Config = require("./Shared/Config.js");
+const PullRequestManager = require("./Shared/PullRequestManager.js");
+const VersionManager = require("./Shared/VersionManager.js");
+const RepositoryManager = require("./Shared/RepositoryManager.js");
+const ChangelogManager = require("./Shared/ChangelogManager.js");
 
 /**
  * @function EntryPoint
@@ -18,10 +18,11 @@ import ChangelogManager from "./Shared/ChangelogManager.js";
 module.exports = async ({ github, context, core }) => {
   try {
     const PullRequest = context.payload.pull_request;
-    if (!PullRequest) throw new Error("Pull request not found");
+    if (!PullRequest) {
+      throw new Error("Pull request not found");
+    }
 
     const PrType = PullRequestManager.ExtractType(PullRequest.title);
-
     const VersionType = Config.VersionMapping[PrType] ? PrType : "Fix";
 
     const VersionFile = await RepositoryManager.Read(
@@ -69,8 +70,8 @@ module.exports = async ({ github, context, core }) => {
     );
 
     core.notice(`Version updated to v${NewVersion}`);
-  } catch (Error) {
-    core.setFailed(`Release script failed: ${Error.message}`);
-    throw Error;
+  } catch (CatchedError) {
+    core.setFailed(`Release script failed: ${CatchedError.message}`);
+    throw CatchedError;
   }
 };

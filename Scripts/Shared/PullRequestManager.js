@@ -3,14 +3,14 @@
  * @brief Pull request utilities
  */
 
-import Config from "./Config.js";
+const Config = require("./Config.js");
 
 /**
  * @class PullRequestManager
  * @brief Utility class for pull request operations
  * @detail Provides methods to extract PR type, and validate titles
  */
-export default class PullRequestManager {
+class PullRequestManager {
   /**
    * @brief Checks if the pull request is a breaking change
    * @param Title - The title of the pull request
@@ -57,3 +57,5 @@ export default class PullRequestManager {
     return Config.CommitPattern.test(Title);
   }
 }
+
+module.exports = PullRequestManager;
