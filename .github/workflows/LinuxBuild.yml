@@ -1,4 +1,4 @@
-name: LinuxBuild
+name: Linux Build
 
 on:
   pull_request:
