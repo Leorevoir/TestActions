@@ -3,7 +3,7 @@
  * @brief Validates pull request titles against Conventional Commits format
  */
 
-const PullRequestManager = require("./PullRequest");
+const PullRequestManager = require("./Shared/PullRequestManager");
 
 /**
  * @function EntryPoint
