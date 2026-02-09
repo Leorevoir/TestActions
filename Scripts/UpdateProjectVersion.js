@@ -3,11 +3,11 @@
  * @brief Updates VERSION.md and CHANGELOG.md based on merged pull request
  */
 
-const Config = require("./Shared/Config");
-const PullRequestManager = require("./Shared/PullRequestManager");
-const VersionManager = require("./Shared/VersionManager");
-const RepositoryManager = require("./Shared/RepositoryManager");
-const ChangelogManager = require("./Shared/ChangelogManager");
+import Config from "./Shared/Config.js";
+import PullRequestManager from "./Shared/PullRequestManager.js";
+import VersionManager from "./Shared/VersionManager.js";
+import RepositoryManager from "./Shared/RepositoryManager.js";
+import ChangelogManager from "./Shared/ChangelogManager.js";
 
 /**
  * @function EntryPoint
@@ -15,7 +15,7 @@ const ChangelogManager = require("./Shared/ChangelogManager");
  * @param Context - GitHub Actions context
  * @param Core - GitHub Actions core utilities
  */
-module.exports = async ({ github, context, core }) => {
+export default async ({ github, context, core }) => {
   try {
     const PullRequest = context.payload.pull_request;
     if (!PullRequest) throw new Error("Pull request not found");
@@ -69,8 +69,8 @@ module.exports = async ({ github, context, core }) => {
     );
 
     core.notice(`Version updated to v${NewVersion}`);
-  } catch (Error) {
-    core.setFailed(`Release script failed: ${Error.message}`);
-    throw Error;
+  } catch (CatchedError) {
+    core.setFailed(`Release script failed: ${CatchedError.message}`);
+    throw CatchedError;
   }
 };

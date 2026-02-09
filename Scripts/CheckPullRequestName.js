@@ -3,7 +3,7 @@
  * @brief Validates pull request titles against Conventional Commits format
  */
 
-const PullRequestManager = require("./Shared/PullRequestManager");
+import PullRequestManager from "./Shared/PullRequestManager.js";
 
 /**
  * @function EntryPoint
@@ -11,7 +11,7 @@ const PullRequestManager = require("./Shared/PullRequestManager");
  * @param Context - GitHub Actions context
  * @param Core - GitHub Actions core utilities
  */
-module.exports = async ({ github, context, core }) => {
+export default async ({ github, context, core }) => {
   try {
     const Title = context.payload.pull_request?.title;
 

@@ -3,7 +3,7 @@
  * @brief Versions request utilities
  */
 
-const Config = require("./Shared/Config");
+import Config from "./Config.js";
 
 /**
  * @class VersionManager
