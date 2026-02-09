@@ -1,0 +1,109 @@
+# Build directories
+build/
+cmake-build-*/
+out/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+compile_commands.json
+*.cmake
+!CMake/*.cmake
+
+# Ninja generated files
+MemTide
+.ninja_*
+*.ninja
+result
+
+# Compiled objects
+*.o
+*.a
+*.so
+*.so.*
+*.dylib
+
+# Executables
+memtide
+memtidectl
+
+# eBPF artifacts
+*.bpf.o
+*.skel.h
+vmlinux.h
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.cache/
+.ccls-cache/
+
+# Debug
+*.dSYM/
+/core
+/core.*
+vgcore.*
+
+# Coverage
+*.gcno
+*.gcda
+*.gcov
+coverage/
+coverage-report/
+lcov.info
+*.info
+
+# Test artifacts
+Testing/
+CTestTestfile.cmake
+
+# Logs
+*.log
+
+# Config overrides (keep default.yaml)
+config/local.yaml
+config/*.local.yaml
+
+# Secrets
+.env
+*.pem
+*.key
+
+# Python / MkDocs
+.venv/
+venv/
+__pycache__/
+*.pyc
+site/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime
+.pids/
+logs/
+
+# Claude Code local settings
+.claude/settings.json
+
+# doxygen
+docs/api/html/
+docs/api/latex/
+
+poc/
+apex_daemon
+test_arena
+test_scanner
+test_logic
+.gitignore
+test_simd
+test_migrator
+test_program
+.gitignore
+.claude/agentdb/db.sqlite.bak
