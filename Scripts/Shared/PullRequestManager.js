@@ -3,7 +3,7 @@
  * @brief Pull request utilities
  */
 
-const Config = require("./Config");
+const Config = require("./Shared/Config");
 
 /**
  * @class PullRequestManager

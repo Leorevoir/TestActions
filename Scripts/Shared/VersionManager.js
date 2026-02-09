@@ -3,7 +3,7 @@
  * @brief Versions request utilities
  */
 
-const Config = require("./Config");
+const Config = require("./Shared/Config");
 
 /**
  * @class VersionManager
