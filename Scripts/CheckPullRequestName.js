@@ -11,7 +11,7 @@ import PullRequestManager from "./Shared/PullRequestManager.js";
  * @param Context - GitHub Actions context
  * @param Core - GitHub Actions core utilities
  */
-module.exports = async ({ github, context, core }) => {
+export default async ({ github, context, core }) => {
   try {
     const Title = context.payload.pull_request?.title;
 
