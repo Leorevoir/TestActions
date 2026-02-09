@@ -6,11 +6,6 @@ on:
       - main
       - dev
 
-  push:
-    branches:
-      - main
-      - dev
-
 jobs:
   Build:
     name: BuildAndTest
