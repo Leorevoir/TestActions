@@ -1,0 +1,17 @@
+name: Enfore Push Rules
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check source branch
+        run: |
+          if [ "${{ github.head_ref }}" != "dev" ]; then
+            echo "::error::Only 'dev' branch can PR to main"
+            exit 84
+          fi
