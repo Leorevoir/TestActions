@@ -24,7 +24,7 @@ jobs:
       - name: Check MemTide binary
         run: |
           if [ ! -f result/bin/MemTide ]; then
-            echo "Binary not found"
+          echo "::error::Binary not found"
             exit 84
           fi
           echo "Binary found"

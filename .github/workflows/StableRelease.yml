@@ -7,17 +7,13 @@ on:
 permissions:
   contents: write
 
-env:
-  IS_STABLE_RELEASE: >-
-    ${{ github.event.pull_request.merged == true &&
-        github.event.pull_request.base.ref == 'main' &&
-        github.event.pull_request.head.ref == 'dev' }}
-
 jobs:
   build:
-    if: env.IS_STABLE_RELEASE == 'true'
+    if: |
+      github.event.pull_request.merged == true && 
+      github.event.pull_request.base.ref == 'main' && 
+      github.event.pull_request.head.ref == 'dev'
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -34,7 +30,10 @@ jobs:
           path: result/*
 
   release:
-    if: env.IS_STABLE_RELEASE == 'true'
+    if: |
+      github.event.pull_request.merged == true && 
+      github.event.pull_request.base.ref == 'main' && 
+      github.event.pull_request.head.ref == 'dev'
     needs: build
     runs-on: ubuntu-latest
 
