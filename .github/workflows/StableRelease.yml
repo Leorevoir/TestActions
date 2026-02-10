@@ -53,7 +53,13 @@ jobs:
           name: binaries
           path: output
 
-      - name: Setup SSH (deploy key)
+      - name: Archive binaries
+        run: |
+          cd output
+          zip -r ../binaries.zip .
+          cd ..
+
+      - name: Setup SSH (deploy ey)
         uses: webfactory/ssh-agent@v0.8.0
         with:
           ssh-private-key: ${{ secrets.DEPLOY_KEY }}
@@ -80,7 +86,7 @@ jobs:
           gh release create "v$VERSION" \
             --title "v$VERSION (Stable Release)" \
             --notes "Release generated from merge of PR: ${{ github.event.pull_request.title }}" \
-            output/*
+            binaries.zip
 
   sync-dev:
     needs: release
