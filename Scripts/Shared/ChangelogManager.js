@@ -15,10 +15,10 @@ class ChangelogManager {
    * @returns A formatted string representing the changelog entry
    */
   static BuildEntry(Version, PullRequest) {
-    const Date = new Date().toISOString().split("T")[0];
+    const NewDate = new Date().toISOString().split("T")[0];
 
     return [
-      `## v${Version} - ${Date}`,
+      `## v${Version} - ${NewDate}`,
       ``,
       `### ${PullRequest.title}`,
       ``,
